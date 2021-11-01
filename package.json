@@ -1,0 +1,17 @@
+{
+  "name": "e-comm-app-graphql",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "apollo-server": "^3.4.0",
+    "graphql": "^16.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.14",
+    "uuid": "^8.3.2"
+  }
+}
