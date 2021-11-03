@@ -16,7 +16,10 @@ exports.typeDefs = gql`
     createReview(input: createReviewInput): Review!
     deleteCategory(id: ID!): Boolean!
     deleteProduct(id: ID!): Boolean!
-    deleteReview(id:ID!):Boolean!
+    deleteReview(id: ID!): Boolean!
+    updateCategory(id: ID!,input:updateCategoryInput!): Boolean!
+    updateProduct(id: ID!,input:updateProductInput!): Boolean!
+    updateReview(id: ID!,input:updateReviewInput!): Boolean!
   }
   type Product {
     id: ID!
@@ -67,5 +70,24 @@ exports.typeDefs = gql`
     comment: String!
     rating: Int!
     productId: ID!
+  }
+  input updateCategoryInput {
+    name: String!
+  }
+  input updateProductInput {
+    name: String
+    description: String
+    quantity: Int
+    price: Float
+    image: String
+    onSale: Boolean
+    categoryId: ID
+  }
+  input updateReviewInput {
+    date: String
+    title: String
+    comment: String
+    rating: Int
+    productId: ID
   }
 `;
