@@ -10,8 +10,13 @@ exports.typeDefs = gql`
     reviews: [Review!]!
     review(id: ID!): Review
   }
-  type Mutation{
-    createCategory(input:createCategoryInput!):Category!
+  type Mutation {
+    createCategory(input: createCategoryInput!): Category!
+    createProduct(input: createProductInput): Product!
+    createReview(input: createReviewInput): Review!
+    deleteCategory(id: ID!): Boolean!
+    deleteProduct(id: ID!): Boolean!
+    deleteReview(id:ID!):Boolean!
   }
   type Product {
     id: ID!
@@ -44,7 +49,23 @@ exports.typeDefs = gql`
     onSale: Boolean
     averageRating: Int
   }
-  input createCategoryInput{
-    name:String!
+  input createCategoryInput {
+    name: String!
+  }
+  input createProductInput {
+    name: String!
+    description: String!
+    quantity: Int!
+    price: Float!
+    image: String!
+    onSale: Boolean!
+    categoryId: ID!
+  }
+  input createReviewInput {
+    date: String!
+    title: String!
+    comment: String!
+    rating: Int!
+    productId: ID!
   }
 `;

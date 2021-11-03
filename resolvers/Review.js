@@ -1,5 +1,5 @@
 exports.Review = {
-  product: ({ productId }, args, { products }) => {
-    return products.find((product) => product.id === productId);
+  product: ({ productId }, args, { db }) => {
+    return db.products.find((product) => product.id === productId);
   },
 };

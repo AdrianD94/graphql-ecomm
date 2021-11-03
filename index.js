@@ -3,7 +3,7 @@ const { typeDefs } = require("./schema");
 const { Query } = require("./resolvers/Query");
 const { Product } = require("./resolvers/Product");
 const { Category } = require("./resolvers/Category");
-const { products, categories, reviews } = require("./db");
+const { db } = require("./db");
 const { Review } = require("./resolvers/Review");
 const { Mutation } = require("./resolvers/Mutation");
 
@@ -18,7 +18,7 @@ const resolvers = {
 const server = new ApolloServer({
   typeDefs,
   resolvers,
-  context: { products, categories, reviews },
+  context: { db },
 });
 
 server.listen().then(({ url }) => console.log(`Server started at ${url}`));
